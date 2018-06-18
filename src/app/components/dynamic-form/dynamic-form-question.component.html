@@ -1,0 +1,30 @@
+<div [formGroup]="form">
+  <div [ngSwitch]="question.ControlType">
+        <mat-form-field *ngSwitchCase="'text'">
+          <input matInput [required]="question.IsMandatory"  [formControlName]="question.text" class="form-control"
+                [id]="question.text" [type]="question.type" [placeholder]="question.Label" >
+            <span class="errorMessage" *ngIf="question.IsMandatory"></span>
+        </mat-form-field>
+        <mat-form-field *ngSwitchCase="'select'">
+          <label *ngIf="question.Label" [attr.for]="question.text">{{question.Label}}</label>
+          <mat-select [id]="question.text" *ngSwitchCase="'select'" class="form-control" [formControlName]="question.text">
+            <mat-option *ngFor="let opt of question.options" [value]="opt.text">{{opt.text}}</mat-option>
+          </mat-select>
+          <span class="errorMessage" *ngIf="question.IsMandatory">*</span>
+      </mat-form-field>
+      <div *ngSwitchCase="'radio'" >
+        <div class="col-md-6">
+            <div class="form-group">
+                  {{question.Label}}
+              </div>
+          </div>
+          <div *ngFor="let qItem of question.controlValues" class="col-md-3">
+                <div class="form-group">
+                  {{qItem.Text}} <input type="radio" [value]="qItem.Value" /> 
+                </div>
+          </div>
+          <span class="errorMessage" *ngIf="question.IsMandatory">*</span>
+      </div>
+  </div> 
+</div>
+

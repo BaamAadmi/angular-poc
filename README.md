@@ -1,3 +1,6 @@
+
+#Upgraded Node version to 8.9, as it is the minimum requirement for angular-cli.
+
 # StlAdminBuilder
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.5.

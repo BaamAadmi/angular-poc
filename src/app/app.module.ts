@@ -1,16 +1,34 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
+import { HttpModule } from "@angular/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { AppRoutingModule } from "./app.routing";
+import * as dynamicComponent from "./components/dynamic-form/index";
+import { AppComponent } from "./app.component";
+import { AppMaterialModule } from "./material.module";
+import {StlPlayerComponent} from "./components/stl-player/stl-player.component";
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    dynamicComponent.DynamicFormQuestionComponent,
+    dynamicComponent.DynamicFormComponent,
+    StlPlayerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    AppMaterialModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+     dynamicComponent.QuestionService,
+     dynamicComponent.QuestionControlService
+    ],
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
