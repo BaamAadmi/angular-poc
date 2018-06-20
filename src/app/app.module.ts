@@ -3,17 +3,23 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+/* Bootstrap CSS elements module */
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+/* ng Select module */
+import { NgSelectModule } from '@ng-select/ng-select';
+
 import { AppRoutingModule } from "./app.routing";
 import * as dynamicComponent from "./components/dynamic-form/index";
 import { AppComponent } from "./app.component";
-import { AppMaterialModule } from "./material.module";
 import {StlPlayerComponent} from "./components/stl-player/stl-player.component";
+import { StlAssetComponent } from './components/stl-asset/stl-asset.component';
 @NgModule({
   declarations: [
     AppComponent,
     dynamicComponent.DynamicFormQuestionComponent,
     dynamicComponent.DynamicFormComponent,
-    StlPlayerComponent
+    StlPlayerComponent,
+    StlAssetComponent
   ],
   imports: [
     BrowserModule,
@@ -22,12 +28,13 @@ import {StlPlayerComponent} from "./components/stl-player/stl-player.component";
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AppMaterialModule
+    NgbModule.forRoot(),
+    NgSelectModule
   ],
   providers: [
-     dynamicComponent.QuestionService,
-     dynamicComponent.QuestionControlService
-    ],
+    dynamicComponent.QuestionService,
+    dynamicComponent.QuestionControlService
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

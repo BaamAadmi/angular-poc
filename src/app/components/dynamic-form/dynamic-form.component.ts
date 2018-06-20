@@ -41,7 +41,7 @@ export class DynamicFormComponent implements OnInit {
       // this.custTranService.PostCustomerDetails(this.customerTransaction)
       //   .subscribe(
       //   x => {
-      //        // Everything is done clear flow information.
+      //        // Everything is done clear information.
       //   },
       //   error => this.errorMessage = <any>error,
       //   () => {
