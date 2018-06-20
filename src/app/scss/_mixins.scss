@@ -1,0 +1,33 @@
+@mixin rgba($type, $color, $percentage: 1) {
+    @if $type == color {
+      	color: rgba($color, $percentage);
+    }
+    @if $type == bg {
+      	background-color: rgba($color, $percentage);
+    }
+    //create halves
+    @if $type == color-half {
+      	color: rgba($color, $percentage/2);
+    }
+    @if $type == bg-half {
+     	background-color: rgba($color, $percentage/2);
+    }
+}
+
+@mixin border($type, $width, $style, $color, $percentage: 1) {
+    @if $type == b {
+		border: $width $style rgba($color, $percentage);
+	}
+    @if $type == bt {
+        border-top: $width $style rgba($color, $percentage);
+    }
+    @if $type == bb {
+        border-bottom: $width $style rgba($color, $percentage);
+    }
+    @if $type == bl {
+        border-left: $width $style rgba($color, $percentage);
+    }
+    @if $type == br {
+        border-right: $width $style rgba($color, $percentage);
+    }
+}

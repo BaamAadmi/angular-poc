@@ -1,0 +1,156 @@
+@import 'variables';
+@import 'mixins';
+
+.stl-form {
+
+    // For input tags
+    input {
+        @include rgba(color, $main-grey);
+        @include border(b, 1px, solid, $border-grey, 1);
+        height: 34px;
+        padding: 10px;
+        font-size: 13px;
+        line-height: 14px;
+        border-radius: 3px;
+
+        &:focus {
+            @include border(b, 1px, solid, $light-blue, 1);
+        }
+    }
+
+    // For textarea
+    textarea {
+        @include rgba(color, $main-grey);
+        @include border(b, 1px, solid, $border-grey, 1);
+        height: auto;
+        padding: 10px;
+        font-size: 13px;
+        line-height: 14px;
+        border-radius: 3px;
+
+        &:focus {
+            @include border(b, 1px, solid, $light-blue, 1);
+        }
+    }
+
+    // For select tags
+    select {
+        @include border(b, 1px, solid, $border-grey, 1);
+        border-radius: 3px;
+        padding-left: 7px;
+        font-size: 13px;
+        height: 34px;
+        width: 100%;
+
+        &:focus {
+            @include border(b, 1px, solid, $light-blue, 1);
+            outline: none;
+        }
+    }
+
+    // For labels
+    label {
+        margin: 10px 0;
+        font-weight: bold;
+    }
+
+    // Red dot for required fields
+    .field-required {
+        @include rgba(color, $negative-red);
+        font-size: 4px;
+        padding-bottom: 3px;
+        vertical-align: middle;
+    }
+
+    // For displaying error messages
+    .stl-validation-message {
+        .stl-error-message-box {
+            @include rgba(bg, $negative-red);
+            @include rgba(color, $white);
+            position: relative;
+            border-radius: 3px;
+            margin-left: 15px;
+            padding: 5px 10px;
+            font-size: 12px;
+            letter-spacing: 0.02em;
+            
+            &::before {
+                padding-right: 8px;
+            }
+            
+            &::after {
+                bottom: 100%;
+                left: 5%;
+                border: solid transparent;
+                content: " ";
+                position: absolute;
+                pointer-events: none;
+                border-bottom-color: $negative-red;
+                border-width: 5px;
+            }
+        }
+    }
+
+    // For multi-select tags-input
+    tags-input {
+        .tags {
+            @include border(b, 1px, solid, $border-grey, 1);
+            height: 34px;
+            border-radius: 3px;
+            box-shadow: none;
+
+            .tag-item {
+                @include rgba(color, $white);
+                @include rgba(bg, $medium-blue);
+                margin-top: 2px;
+                margin-left: 4px;
+                border-radius: 3px;
+                font-size: 13px;
+                height: 26px;
+
+                ti-tag-item {
+                    &::before {
+                        font-size: 12px;
+                        margin-left: 1px;
+                        margin-right: 5px;
+                    }
+                }
+
+                .remove-button {
+                    margin-left: 5px;
+                    cursor: pointer;
+                    vertical-align: middle;
+                    font-size: 14px;
+                    font-weight: bold;
+                }
+            }
+            
+            // For the input tag inside multi-select
+            .input {
+                border: none;
+                font-size: 13px;
+            }
+        }
+
+        .tags.focused {
+            @include border(b, 1px, solid, $light-blue, 1);
+        }
+    }
+
+    // Give red border to input box when an error has occurred
+    .form-control.error {
+        @include border(b, 1px, solid, $negative-red);
+    }
+
+    // Custom margin bottom added to accomodate error messages
+    .stl-margin-bottom-custom {
+        margin-bottom: 7px;
+
+        // Remove default outline on select tag focus 
+        div {
+            &::focus {
+                outline: none;
+            }
+        }
+    }
+}
