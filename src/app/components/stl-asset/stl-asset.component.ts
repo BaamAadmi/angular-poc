@@ -5,7 +5,7 @@ import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Valida
 @Component({
   selector: 'app-stl-asset',
   templateUrl: './stl-asset.component.html',
-  styleUrls: ['./stl-asset.component.css']
+  styleUrls: ['./../../scss/_forms.scss']
 })
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;
