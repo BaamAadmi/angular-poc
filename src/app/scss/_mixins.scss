@@ -31,3 +31,9 @@
         border-right: $width $style rgba($color, $percentage);
     }
 }
+
+// CSS Grid display
+@mixin grid() {
+	display: -ms-grid;
+	display: grid;
+}

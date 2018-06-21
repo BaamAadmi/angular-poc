@@ -1,12 +1,96 @@
 @import 'variables';
 @import 'mixins';
 
+.container {
+    margin: 10px 20px;
+    max-width: 98%;
+}
+
+.stl-page-heading-title {
+    @include grid();
+    grid-gap: 10px;
+    grid-template-areas: "title action"
+                         "breadcrumb action";
+
+    h1 {
+        grid-area: title;
+        @include rgba(color, $main-grey);
+        font-weight: 300;
+        font-size: 24px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        margin: 0;
+    }
+
+    .breadcrumb {
+        padding: 0;
+        list-style: none;
+        margin-bottom: 0;
+        background: inherit;
+        letter-spacing: 0.02em;
+
+        li {
+            display: inline-block;
+
+            a {
+                @include rgba(color, $main-grey);
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            + li:before {
+                content: "/"; // Unicode space added since inline-block means non-collapsing white-space
+                @include rgba(color, $main-grey);
+                padding: 0 5px;
+            }
+        }
+
+        .active {
+            @include rgba(color, $dark-blue);
+        }
+    }
+
+    .top-buttons {
+        grid-area: action;
+        justify-self: end;
+
+        .btn-import {
+            @include rgba(bg, $medium-blue, 0);
+            @include rgba(color, $medium-blue);
+            @include border(b, 1px, solid, $medium-blue, 1);
+
+            &:hover {
+                @include rgba(bg, $medium-blue, 1);
+                @include rgba(color, $white);
+            }
+        }
+
+        .btn-create-new {
+            @include rgba(bg, $medium-blue);
+            @include rgba(color, $white);
+
+            &:hover {
+                @include rgba(bg, $medium-blue, 0.7);
+            }
+        }
+    }
+}
+
+
 .stl-form {
+    @include rgba(bg, $white);
+    padding: 10px 30px;
+    margin-top: 30px;
+    box-shadow: 0px -2px 0px 0px #dee5e9;
 
     // For input tags
     input {
         @include rgba(color, $main-grey);
         @include border(b, 1px, solid, $border-grey, 1);
+        width: 100%;
         height: 34px;
         padding: 10px;
         font-size: 13px;
@@ -51,6 +135,7 @@
     // For labels
     label {
         margin: 10px 0;
+        font-size: 13px;
         font-weight: bold;
     }
 
@@ -69,7 +154,7 @@
             @include rgba(color, $white);
             position: relative;
             border-radius: 3px;
-            margin-left: 15px;
+            margin-top: 5px;
             padding: 5px 10px;
             font-size: 12px;
             letter-spacing: 0.02em;
@@ -80,7 +165,7 @@
             
             &::after {
                 bottom: 100%;
-                left: 5%;
+                left: 1%;
                 border: solid transparent;
                 content: " ";
                 position: absolute;

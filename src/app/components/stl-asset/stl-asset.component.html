@@ -1,19 +1,42 @@
 <div class="col-lg-12">
   <div class="container">
-    <h1>Set Admin Form</h1>
+
+
+    <div class="stl-page-heading">
+      <div class="stl-page-heading-title">
+          <h1>TLM&trade; View Workflows</h1>
+          <ol class="breadcrumb">
+              <li>
+                  <a ui-sref="main" id="lnkWorkflowsBrowserHome" href="javascript:;">
+                      Home
+                  </a>
+              </li>
+              <li class="active">
+                  <strong>Form</strong>
+              </li>
+          </ol>
+          <span class="top-buttons">
+            <div class="btn btn-md btn-create-new"
+                 id="btnCreateDataSource"><i class="fa fa-fw fa-plus"></i> Save
+            </div>
+          </span>
+      </div>
+  </div>
+
+
     <form class="stl-form" (ngSubmit)="submitAsset()" [formGroup]="assetForm">
       <div class="form-group">
         <label for="name">Name</label>
-        <input formControlName="name" type="text" class="form-control" id="name">
+        <input formControlName="name" type="text" id="name">
         <div *ngIf="name.invalid && (name.dirty || name.touched)"
-          class="alert alert-danger">
-          <div *ngIf="name.errors.required">
+          class="stl-validation-message">
+          <div *ngIf="name.errors.required" class="stl-error-message-box fa fa-exclamation-triangle">
             Name is required.
           </div>
-          <div *ngIf="name.errors.minlength">
+          <div *ngIf="name.errors.minlength" class="stl-error-message-box fa fa-exclamation-triangle">
             Name must be at least 4 characters long.
           </div>
-          <div *ngIf="name.errors.forbiddenName">
+          <div *ngIf="name.errors.forbiddenName" class="stl-error-message-box fa fa-exclamation-triangle">
             Name cannot be Bob.
           </div>
         </div>
