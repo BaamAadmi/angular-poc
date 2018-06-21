@@ -1,0 +1,41 @@
+<div *ngIf="message" class="modal" tabindex="-1" role="dialog" style="display:block!important">
+  <div class="modal-dialog" role="document">
+  <div class="modal-content">
+      <div *ngIf="message.type === 'success' || message.type === 'error' || message.type === 'warning'" class="alert alert-dismissible" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error', 'alert-warning': message.type === 'warning' }" role="alert">
+          <button type="button" (click)="hideMessage()" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+          </button> 
+          <h1>
+              <i class="fa" [ngClass]="{' fa-check-circle': message.type === 'success', 'fa-close': message.type === 'error', 'fa-exclamation-circle': message.type === 'warning' }" ></i>
+           </h1> 
+          <p> {{message.text}}</p>
+      </div>
+      <div *ngIf="message.type == 'confirm'"  class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="text-center">{{message.text}}</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-center">
+                    <a (click)="message.noFn()">
+                        <button class="btn btn-pm">No</button>
+                    </a>
+                    <a (click)="message.siFn()">
+                        <button  class="btn btn-sc" >Yes</button>
+                    </a>
+                </p>
+            </div>
+        </div>
+     </div>
+
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div>
+
+
+                          
+                              
+
+                          
