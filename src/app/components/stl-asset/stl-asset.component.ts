@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Validators,  ValidatorFn } from "@angular/forms";
-
+import { AlertService } from "../../_services/alert.service";
 @Component({
-  selector: 'app-stl-asset',
+  selector: 'stl-asset',
   templateUrl: './stl-asset.component.html',
   styleUrls: ['./../../scss/_forms.scss']
 })
@@ -15,7 +15,8 @@ export class StlAssetComponent implements OnInit {
   currencyList: any;
 
   constructor(private fb: FormBuilder,
-              private http: Http) { }
+              private http: Http,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.assetForm = this.fb.group({
@@ -63,7 +64,14 @@ export class StlAssetComponent implements OnInit {
   get currency() { return this.assetForm.get('currency'); }
 
   submitAsset(): void {
-      console.log(this.assetForm.value);
+     const thisRef = this;
+     this.alertService.confirm("Are you sure you want to Submit?", function() {
+       // ACTION: Do this If user says YES
+       thisRef.alertService.success("Great!");
+    }, function() {
+      // ACTION: Do this if user says NO
+      thisRef.alertService.error("Bad choice");
+    });
   }
 
 }
