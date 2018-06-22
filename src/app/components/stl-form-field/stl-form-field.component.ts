@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-stl-form-field',
+  selector: 'stl-form-field',
   templateUrl: './stl-form-field.component.html',
   styleUrls: ['./_stl-form-field.component.scss']
 })

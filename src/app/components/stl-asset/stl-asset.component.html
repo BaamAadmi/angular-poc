@@ -23,12 +23,11 @@
 		</div>
 
 		<form class="stl-form" (ngSubmit)="submitAsset()" [formGroup]="assetForm">
-			<app-stl-form-field [label]="'name'" [name]="'name'" [form]="assetForm">
+			<stl-form-field [label]="'name'" [name]="'name'" [form]="assetForm">
 				<input formControlName="name" type="text" id="name">
-			</app-stl-form-field>
+			</stl-form-field>
 
-<<<<<<< HEAD
-			<app-stl-form-field [label]="'alterEgo'" [name]="'alterEgo'" [form]="assetForm">
+			<stl-form-field [label]="'alterEgo'" [name]="'alterEgo'" [form]="assetForm">
 				<ng-select formControlName="alterEgo" [searchable]="false" labelForId="alterEgo">
 					<ng-template ng-label-tmp let-item="item" let-label="label">
 						<img *ngIf="item" src="assets/img/{{item}}.png" width="20px" height="20px" /> {{label}}
@@ -37,31 +36,9 @@
 					<ng-option value="spidey">Spider-Man</ng-option>
 					<ng-option value="thor">Thor</ng-option>
 				</ng-select>
-			</app-stl-form-field>
-=======
-    <div class="stl-page-heading">
-      <div class="stl-page-heading-title">
-          <h1>TLM&trade; View Workflows</h1>
-          <ol class="breadcrumb">
-              <li>
-                  <a ui-sref="main" id="lnkWorkflowsBrowserHome" href="javascript:;">
-                      Home
-                  </a>
-              </li>
-              <li class="active">
-                  <strong>Form</strong>
-              </li>
-          </ol>
-          <span class="top-buttons">
-            <div class="btn btn-md btn-create-new"
-             (click)="submitAsset()"><i class="fa fa-fw fa-plus"></i> Save
-            </div>
-          </span>
-      </div>
-  </div>
->>>>>>> f94219c6eb8933be5aa84d0a5ee1b16bc0a64d2d
+			</stl-form-field>
 
-			<app-stl-form-field [label]="'assetEntryDate'" [name]="'assetEntryDate'" [form]="assetForm">
+			<stl-form-field [label]="'assetEntryDate'" [name]="'assetEntryDate'" [form]="assetForm">
 				<div class="input-group">
 					<input class="form-control" placeholder="yyyy-mm-dd"
 						   name="assetEntryDate" formControlName="assetEntryDate" ngbDatepicker #assetEntryDate="ngbDatepicker">
@@ -71,9 +48,9 @@
 						</button>
 					</div>
 				</div>
-			</app-stl-form-field>
+			</stl-form-field>
 
-			<app-stl-form-field [label]="'currencyList'" [name]="'currencyList'" [form]="assetForm">
+			<stl-form-field [label]="'currencyList'" [name]="'currencyList'" [form]="assetForm">
 				<ng-select [items]="currencyList" formControlName="currency" labelForId="currencyList" bindLabel="name">
 					<ng-template ng-option-tmp let-item="item" let-index="index" let-label="label">
 						<div class="stl-template-dropdown">
@@ -83,7 +60,7 @@
 						</div>
 					</ng-template>
 				</ng-select>
-			</app-stl-form-field>
+			</stl-form-field>
 
 			<div class="form-group" formArrayName="items"
 				*ngFor="let item of assetForm.get('items').controls; let i = index;">

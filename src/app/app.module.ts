@@ -13,11 +13,8 @@ import * as dynamicComponent from "./components/dynamic-form/index";
 import { AppComponent } from "./app.component";
 import {StlPlayerComponent} from "./components/stl-player/stl-player.component";
 import { StlAssetComponent } from './components/stl-asset/stl-asset.component';
-<<<<<<< HEAD
 import { StlFormFieldComponent } from './components/stl-form-field/stl-form-field.component';
-=======
 import { StlAlertComponent } from './components/stl-alert/stl-alert.component';
->>>>>>> f94219c6eb8933be5aa84d0a5ee1b16bc0a64d2d
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,11 +22,8 @@ import { StlAlertComponent } from './components/stl-alert/stl-alert.component';
     dynamicComponent.DynamicFormComponent,
     StlPlayerComponent,
     StlAssetComponent,
-<<<<<<< HEAD
-    StlFormFieldComponent
-=======
+    StlFormFieldComponent,
     StlAlertComponent
->>>>>>> f94219c6eb8933be5aa84d0a5ee1b16bc0a64d2d
   ],
   imports: [
     BrowserModule,
