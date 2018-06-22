@@ -13,13 +13,15 @@ import * as dynamicComponent from "./components/dynamic-form/index";
 import { AppComponent } from "./app.component";
 import {StlPlayerComponent} from "./components/stl-player/stl-player.component";
 import { StlAssetComponent } from './components/stl-asset/stl-asset.component';
+import { StlFormFieldComponent } from './components/stl-form-field/stl-form-field.component';
 @NgModule({
   declarations: [
     AppComponent,
     dynamicComponent.DynamicFormQuestionComponent,
     dynamicComponent.DynamicFormComponent,
     StlPlayerComponent,
-    StlAssetComponent
+    StlAssetComponent,
+    StlFormFieldComponent
   ],
   imports: [
     BrowserModule,

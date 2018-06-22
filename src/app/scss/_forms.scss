@@ -2,7 +2,7 @@
 @import 'mixins';
 
 .container {
-    margin: 10px 20px;
+    margin: 30px 20px;
     max-width: 98%;
 }
 
@@ -24,6 +24,7 @@
     }
 
     .breadcrumb {
+        grid-area: breadcrumb;
         padding: 0;
         list-style: none;
         margin-bottom: 0;
@@ -237,5 +238,39 @@
                 outline: none;
             }
         }
+    }
+}
+
+// For Date-Time Picker
+.input-group {
+    input {
+        width: 97%;
+    }
+
+    .input-group-append {
+        button {
+            @include border(b, 1px, solid, $border-grey, 1);
+            height: 34px;
+
+            &:hover {
+                @include rgba(bg, $border-grey, 0.1);
+            }
+        }
+    }
+}
+
+// For styling dropdown template
+.stl-template-dropdown {
+    .temp-desc, .temp-name {
+        letter-spacing: 0.03em;
+        margin-left: 10px;
+    }
+    .temp-name {
+        font-weight: bold;
+        @include rgba(color, $light-blue);
+    }
+    .temp-value {
+        font-weight: bold;
+        @include rgba(color, $positive-green);
     }
 }

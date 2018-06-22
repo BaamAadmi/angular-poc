@@ -1,97 +1,79 @@
 <div class="col-lg-12">
-  <div class="container">
+	<div class="container">
+		<div class="stl-page-heading">
+			<div class="stl-page-heading-title">
+				<h1>TLM&trade; Admin Form</h1>
+				<ol class="breadcrumb">
+					<li>
+						<a ui-sref="main" id="lnkWorkflowsBrowserHome" href="javascript:;">
+							Home
+						</a>
+						<i class="fa fa-circle"></i>
+					</li>
+					<li class="active">
+						<strong>Form</strong>
+					</li>
+				</ol>
+				<span class="top-buttons">
+					<div class="btn btn-md btn-create-new"
+						 id="btnCreateDataSource"><i class="fa fa-fw fa-plus"></i> Save
+					</div>
+				</span>
+			</div>
+		</div>
 
+		<form class="stl-form" (ngSubmit)="submitAsset()" [formGroup]="assetForm">
+			<app-stl-form-field [label]="'name'" [name]="'name'" [form]="assetForm">
+				<input formControlName="name" type="text" id="name">
+			</app-stl-form-field>
 
-    <div class="stl-page-heading">
-      <div class="stl-page-heading-title">
-          <h1>TLM&trade; View Workflows</h1>
-          <ol class="breadcrumb">
-              <li>
-                  <a ui-sref="main" id="lnkWorkflowsBrowserHome" href="javascript:;">
-                      Home
-                  </a>
-              </li>
-              <li class="active">
-                  <strong>Form</strong>
-              </li>
-          </ol>
-          <span class="top-buttons">
-            <div class="btn btn-md btn-create-new"
-                 id="btnCreateDataSource"><i class="fa fa-fw fa-plus"></i> Save
-            </div>
-          </span>
-      </div>
-  </div>
+			<app-stl-form-field [label]="'alterEgo'" [name]="'alterEgo'" [form]="assetForm">
+				<ng-select formControlName="alterEgo" [searchable]="false" labelForId="alterEgo">
+					<ng-template ng-label-tmp let-item="item" let-label="label">
+						<img *ngIf="item" src="assets/img/{{item}}.png" width="20px" height="20px" /> {{label}}
+					</ng-template>
+					<ng-option value="batman">Batman</ng-option>
+					<ng-option value="spidey">Spider-Man</ng-option>
+					<ng-option value="thor">Thor</ng-option>
+				</ng-select>
+			</app-stl-form-field>
 
+			<app-stl-form-field [label]="'assetEntryDate'" [name]="'assetEntryDate'" [form]="assetForm">
+				<div class="input-group">
+					<input class="form-control" placeholder="yyyy-mm-dd"
+						   name="assetEntryDate" formControlName="assetEntryDate" ngbDatepicker #assetEntryDate="ngbDatepicker">
+					<div class="input-group-append">
+						<button class="btn btn-outline-secondary" (click)="assetEntryDate.toggle()" type="button">
+							<img src="../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+						</button>
+					</div>
+				</div>
+			</app-stl-form-field>
 
-    <form class="stl-form" (ngSubmit)="submitAsset()" [formGroup]="assetForm">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input formControlName="name" type="text" id="name">
-        <div *ngIf="name.invalid && (name.dirty || name.touched)"
-          class="stl-validation-message">
-          <div *ngIf="name.errors.required" class="stl-error-message-box fa fa-exclamation-triangle">
-            Name is required.
-          </div>
-          <div *ngIf="name.errors.minlength" class="stl-error-message-box fa fa-exclamation-triangle">
-            Name must be at least 4 characters long.
-          </div>
-          <div *ngIf="name.errors.forbiddenName" class="stl-error-message-box fa fa-exclamation-triangle">
-            Name cannot be Bob.
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="alterEgo">Alter Ego</label>
-        <ng-select  formControlName="alterEgo" [searchable]="false" labelForId="alterEgo">
-            <ng-template ng-label-tmp let-item="item" let-label="label">
-                <img *ngIf="item" src="assets/img/{{item}}.png" width="20px" height="20px" /> {{label}}
-            </ng-template>
-            <ng-option value="batman">Batman</ng-option>
-            <ng-option value="spidey">Spider-Man</ng-option>
-            <ng-option value="thor">Thor</ng-option>
-        </ng-select>
-      </div>
-      <div class="form-group">
-        <label for="alterEgo">Asset Entry Date</label>
-        <div class="input-group">
-          <input class="form-control" placeholder="yyyy-mm-dd"
-                  name="assetEntryDate" formControlName="assetEntryDate" ngbDatepicker #assetEntryDate="ngbDatepicker">
-          <div class="input-group-append">
-            <button class="btn btn-outline-secondary" (click)="assetEntryDate.toggle()" type="button">
-              <img src="../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="currency">currency</label>
-        <ng-select  formControlName="currency" [searchable]="false" labelForId="currency">
-            <ng-template ng-label-tmp let-item="item" let-label="label">
-               {{item}} {{label}}
-            </ng-template>
-            <ng-option value="&#36;">Dollar</ng-option>
-            <ng-option value="&#128;">Euro</ng-option>
-            <ng-option value="&#163;">Pound</ng-option>
-        </ng-select>
+			<app-stl-form-field [label]="'currencyList'" [name]="'currencyList'" [form]="assetForm">
+				<ng-select [items]="currencyList" formControlName="currency" labelForId="currencyList" bindLabel="name">
+					<ng-template ng-option-tmp let-item="item" let-index="index" let-label="label">
+						<div class="stl-template-dropdown">
+							<ng-option class="temp-value" [innerHTML]="item.value"></ng-option>
+							<span class="temp-name">{{item.name}}</span>
+							<span class="temp-desc">{{item.description}}</span>
+						</div>
+					</ng-template>
+				</ng-select>
+			</app-stl-form-field>
 
-
-      </div>
-      <div class="form-group" formArrayName="items"
-        *ngFor="let item of assetForm.get('items').controls; let i = index;">
-        <div class="" [formGroupName]="i">
-          <label class="col-md-3" for="currency">Item for Shopping: {{ assetForm.controls.items.controls[i].controls.name.value }} </label>
-          <input  class="col-md-3"  formControlName="description" placeholder="Item description">
-          <input  class="col-md-3" type="number"  formControlName="price" placeholder="Item price">
-          <input  class="col-md-3" formControlName="name" placeholder="Item name">
-        </div>
-      </div>
-      <button class="btn btn-secondary" (click)="addItem()"> Add Item </button>
-      <button type="submit" class="btn btn-success">Submit</button>
-    </form>
-    <pre *ngIf="!assetForm.invalid">Form value: {{ assetForm.value | json }}</pre>
-  </div>
+			<div class="form-group" formArrayName="items"
+				*ngFor="let item of assetForm.get('items').controls; let i = index;">
+				<div class="" [formGroupName]="i">
+					<label class="col-md-3" for="currency">Item for Shopping: {{ assetForm.controls.items.controls[i].controls.name.value }} </label>
+					<input  class="col-md-3"  formControlName="description" placeholder="Item description">
+					<input  class="col-md-3" type="number"  formControlName="price" placeholder="Item price">
+					<input  class="col-md-3" formControlName="name" placeholder="Item name">
+				</div>
+			</div>
+			<button class="btn btn-secondary" (click)="addItem()"> Add Item </button>
+			<button type="submit" class="btn btn-success">Submit</button>
+		</form>
+		<pre *ngIf="!assetForm.invalid">Form value: {{ assetForm.value | json }}</pre>
+	</div>
 </div>
-
-
-

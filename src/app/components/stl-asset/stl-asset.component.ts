@@ -10,8 +10,10 @@ import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Valida
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;
   nameRegex: RegExp = /bob/i;
-  asset: any = { name: '', alterEgo: '', currency: '' };
+  asset: any = { name: '', alterEgo: '', currency: '', player: ''};
   items: any;
+  currencyList: any;
+
   constructor(private fb: FormBuilder,
               private http: Http) { }
 
@@ -26,10 +28,14 @@ export class StlAssetComponent implements OnInit {
       assetEntryDate: [this.asset.name, [
         Validators.required
       ] ],
-      currency: new FormControl(this.asset.currency, Validators.required),
+      player: new FormControl([]),
+      currency: new FormControl([]),
       items: this.fb.array([ this.createItem() ])
     });
-
+    this.currencyList = [{name: "Dollar", id: 1, value: "&#36;", description: "This is the currency of United States of America"},
+                         {name: "Euro", id: 2, value: "&#8364;", description: "This is the currency of Europian Union"},
+                         {name: "Pound", id: 3, value: "&#163;", description: "This is the currency of Great Britain"},
+                         {name: "INR", id: 4, value : "&#8377;", description: "This is the currency of India"}];
   }
 
   forbiddenNameValidator(nameRe: RegExp): ValidatorFn {

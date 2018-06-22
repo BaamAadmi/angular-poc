@@ -1,0 +1,11 @@
+<div class="stl-form-field">
+    <label>{{label}}</label>
+    <i class="fa fa-fw fa-circle field-required"></i>
+    <ng-content></ng-content>
+    <div *ngFor="let error of errors"
+         class="stl-validation-message">
+        <div class="stl-error-message-box fa fa-exclamation-triangle">
+            {{error}}
+        </div>
+    </div>
+</div>

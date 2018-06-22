@@ -1,0 +1,39 @@
+@import '../../scss/variables';
+@import '../../scss/mixins';
+
+// For labels
+label {
+    margin: 10px 0;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+// For displaying validation messages
+.stl-validation-message {
+    .stl-error-message-box {
+        @include rgba(bg, $negative-red);
+        @include rgba(color, $white);
+        position: relative;
+        border-radius: 3px;
+        margin-top: 5px;
+        padding: 5px 10px;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        
+        &::before {
+            padding-right: 8px;
+        }
+        
+        &::after {
+            bottom: 100%;
+            left: 1%;
+            border: solid transparent;
+            content: " ";
+            position: absolute;
+            pointer-events: none;
+            border-bottom-color: $negative-red;
+            border-width: 5px;
+        }
+    }
+}
