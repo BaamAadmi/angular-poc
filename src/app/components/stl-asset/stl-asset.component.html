@@ -62,17 +62,29 @@
 				</ng-select>
 			</stl-form-field>
 
-			<div class="form-group" formArrayName="items"
-				*ngFor="let item of assetForm.get('items').controls; let i = index;">
-				<div class="" [formGroupName]="i">
-					<label class="col-md-3" for="currency">Item for Shopping: {{ assetForm.controls.items.controls[i].controls.name.value }} </label>
-					<input  class="col-md-3"  formControlName="description" placeholder="Item description">
-					<input  class="col-md-3" type="number"  formControlName="price" placeholder="Item price">
-					<input  class="col-md-3" formControlName="name" placeholder="Item name">
+			<input formControlName="toggle" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'active':'inactive')" type="checkbox" id="toggle" />
+			<label for="toggle">Show Table</label>
+
+			<div class="table-section" [hidden]="!active">
+				<div class="table-section-title">
+					<div class="col-md-3">Item Name</div>
+					<div class="col-md-3">Item Description</div>
+					<div class="col-md-3">Item Price</div>
+					<div class="col-md-3">Actions</div>
+				</div>
+				<div class="form-group" formArrayName="items"
+					*ngFor="let item of assetForm.get('items').controls; let i = index;">
+					<div class="" [formGroupName]="i">
+						<input class="col-md-3"  formControlName="description" placeholder="Item description">
+						<input class="col-md-3" type="number"  formControlName="price" placeholder="Item price">
+						<input class="col-md-3" formControlName="name" placeholder="Item name">
+						<span class="col-md-3">
+							<button class="btn btn-sm add-item" (click)="addItem()"> Add Item </button>
+							<!-- <button type="submit" class="btn btn-success">Submit</button> -->
+						</span>
+					</div>
 				</div>
 			</div>
-			<button class="btn btn-secondary" (click)="addItem()"> Add Item </button>
-			<button type="submit" class="btn btn-success">Submit</button>
 		</form>
 		<pre *ngIf="!assetForm.invalid">Form value: {{ assetForm.value | json }}</pre>
 	</div>

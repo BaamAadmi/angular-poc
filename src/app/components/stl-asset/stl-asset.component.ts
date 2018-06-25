@@ -10,9 +10,11 @@ import { AlertService } from "../../_services/alert.service";
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;
   nameRegex: RegExp = /bob/i;
-  asset: any = { name: '', alterEgo: '', currency: '', player: ''};
+  asset: any = { name: '', alterEgo: '', currency: '', player: '', toggle: ''};
   items: any;
   currencyList: any;
+  toggle: boolean;
+  active: boolean;
 
   constructor(private fb: FormBuilder,
               private http: Http,
@@ -31,8 +33,10 @@ export class StlAssetComponent implements OnInit {
       ] ],
       player: new FormControl([]),
       currency: new FormControl([]),
+      toggle: new FormControl([]),
       items: this.fb.array([ this.createItem() ])
     });
+    this.toggle = true;
     this.currencyList = [{name: "Dollar", id: 1, value: "&#36;", description: "This is the currency of United States of America"},
                          {name: "Euro", id: 2, value: "&#8364;", description: "This is the currency of Europian Union"},
                          {name: "Pound", id: 3, value: "&#163;", description: "This is the currency of Great Britain"},
@@ -72,6 +76,15 @@ export class StlAssetComponent implements OnInit {
       // ACTION: Do this if user says NO
       thisRef.alertService.error("Bad choice");
     });
+  }
+
+  checkValue(event: any) {
+    if (event === 'active') {
+      this.active = true;
+    } else {
+      this.active = false;
+    }
+    console.log(event);
   }
 
 }

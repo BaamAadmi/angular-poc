@@ -37,3 +37,37 @@
 	display: -ms-grid;
 	display: grid;
 }
+
+// CSS Inline-Grid display
+@mixin inlineGrid() {
+	display: -ms-inline-grid;
+	display: inline-grid;
+}
+
+// Self Alignment
+// flex-start | flex-end | center | space-between | space-around 
+@mixin justify-self($justify) {
+	-webkit-justify-self: $justify;
+	   -moz-justify-self: $justify;
+		-ms-justify-self: $justify;
+			justify-self: $justify;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch 
+@mixin align-items($align) {
+	-webkit-align-items: $align;
+	   -moz-align-items: $align;
+		-ms-align-items: $align;
+			align-items: $align;
+}
+
+// Flexbox display
+@mixin flexbox() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
