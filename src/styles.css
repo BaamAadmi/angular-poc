@@ -5,3 +5,96 @@
 body {
     background-color: #eff3f6;
 }
+
+.owl-dt-calendar-control {
+    color: white;
+    background: rgba(46, 122, 159, 1);
+}
+
+.owl-dt-container-buttons > button:first-child .owl-dt-control-button-content {
+    background: rgba(222, 229, 233, 1);
+    color: rgba(71, 81, 93, 1);
+    width: 60px;
+    border-radius: 3px;
+    height: 22px;
+    float: left;
+    margin-left: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.owl-dt-container-buttons button .owl-dt-control-button-content {
+    background: rgba(46, 122, 159, 1);
+    color: white;
+    width: 50px;
+    border-radius: 3px;
+    height: 22px;
+    float: right;
+    margin-right: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.owl-dt-container-buttons > button:first-child:hover .owl-dt-control-button-content {
+    background: rgba(222, 229, 233, 0.7);
+    opacity: 0.8;
+}
+
+.owl-dt-container-control-button:hover .owl-dt-control-button-content {
+    background: rgba(46, 122, 159, 0.7);
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-cell-selected {
+    background: rgba(46, 122, 159, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.owl-dt-timer {
+    height: 5em;
+    padding: 0.1em;
+}
+
+.owl-dt-timer-content .owl-dt-timer-input {
+    width: 3em;
+    font-size: 1.1em;
+    padding: 0.1em;
+}
+
+.owl-dt-timer-content .owl-dt-timer-input {
+    width: 4em;
+    font-size: 1.1em;
+    padding: 0.1em;
+}
+
+.owl-dt-timer > .owl-dt-timer-box:nth-child(2) {
+    margin-left: 50px;
+}
+
+.owl-dt-timer-divider {
+    width: .8em;
+    left: -1.8em;
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-header .owl-dt-weekdays th {
+    font-size: 0.8em;
+    font-weight: 500;
+    padding-bottom: 0;
+}
+
+.owl-dt-calendar-table .owl-dt-calendar-cell {
+    font-size: 20px;
+    color: rgba(71, 81, 93, 1);
+    font-weight: 500;
+}
+
+.owl-dt-container-buttons {
+    height: 3em;
+}
+
+.owl-dt-control-period-button .owl-dt-control-button-content {
+    font-weight: 500;
+}
+
+.owl-dt-control-period-button .owl-dt-control-button-arrow {
+    margin-left: 10px;
+}
