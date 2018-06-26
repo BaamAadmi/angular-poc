@@ -6,6 +6,8 @@ body {
     background-color: #eff3f6;
 }
 
+
+/*  Custom Styling Date & Time Picker  */
 .owl-dt-calendar-control {
     color: white;
     background: rgba(46, 122, 159, 1);
@@ -97,4 +99,12 @@ body {
 
 .owl-dt-control-period-button .owl-dt-control-button-arrow {
     margin-left: 10px;
+}
+
+
+/*  Custom Styling Alert Box  */
+.alert {
+    padding: 0.3rem 1rem;
+    margin-bottom: 0;
+    border-radius: 3px;
 }
