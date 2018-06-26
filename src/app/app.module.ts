@@ -15,6 +15,7 @@ import {StlPlayerComponent} from "./components/stl-player/stl-player.component";
 import { StlAssetComponent } from './components/stl-asset/stl-asset.component';
 import { StlFormFieldComponent } from './components/stl-form-field/stl-form-field.component';
 import { StlAlertComponent } from './components/stl-alert/stl-alert.component';
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,7 @@ import { StlAlertComponent } from './components/stl-alert/stl-alert.component';
     StlPlayerComponent,
     StlAssetComponent,
     StlFormFieldComponent,
-    StlAlertComponent
+    StlAlertComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +34,9 @@ import { StlAlertComponent } from './components/stl-alert/stl-alert.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule.forRoot(),
-    NgSelectModule
+    NgSelectModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule
   ],
   providers: [
     dynamicComponent.QuestionService,

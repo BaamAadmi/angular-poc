@@ -10,15 +10,16 @@ import { AlertService } from "../../_services/alert.service";
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;
   nameRegex: RegExp = /bob/i;
-  asset: any = { name: '', alterEgo: '', currency: '', player: '', toggle: ''};
+  asset: any = { name: '', alterEgo: '', currency: '', player: '', toggle: '' };
   items: any;
   currencyList: any;
   toggle: boolean;
   active: boolean;
+  dob: any;
 
   constructor(private fb: FormBuilder,
               private http: Http,
-              private alertService: AlertService) { }
+              private alertService: AlertService) {}
 
   ngOnInit() {
     this.assetForm = this.fb.group({
@@ -84,7 +85,6 @@ export class StlAssetComponent implements OnInit {
     } else {
       this.active = false;
     }
-    console.log(event);
   }
 
 }

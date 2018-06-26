@@ -62,6 +62,10 @@
 				</ng-select>
 			</stl-form-field>
 
+			<label>Date Time:</label>
+			<input class="stl-date-picker" [owlDateTimeTrigger]="dt7" [owlDateTime]="dt7">
+    		<owl-date-time [startAt]="startAt" #dt7></owl-date-time>
+			
 			<input formControlName="toggle" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'active':'inactive')" type="checkbox" id="toggle" />
 			<label for="toggle">Show Table</label>
 
