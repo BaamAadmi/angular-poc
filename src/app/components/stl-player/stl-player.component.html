@@ -1,8 +1,14 @@
-<app-dynamic-form
-        [questions]="formData" >
-</app-dynamic-form>
-<div class="list">
-    <table>
 
-    </table>
+<div class="side-form">
+    <h1>{{title}}</h1>
+    <div class="form-container">
+        <stl-dynamic-form
+            [questions]="formData"
+            (onSubmitCallback)="saveplayer($event[0],$event[1])" >
+        </stl-dynamic-form>
+    </div>
 </div>
+
+
+
+

@@ -11,20 +11,27 @@ import * as AllServices from "./_services";
 import { AppRoutingModule } from "./app.routing";
 import * as dynamicComponent from "./components/dynamic-form/index";
 import { AppComponent } from "./app.component";
-import {StlPlayerComponent} from "./components/stl-player/stl-player.component";
+import {StlPlayerComponent, StlPlayerListComponent} from "./components/stl-player";
 import { StlAssetComponent } from './components/stl-asset/stl-asset.component';
 import { StlFormFieldComponent } from './components/stl-form-field/stl-form-field.component';
 import { StlAlertComponent } from './components/stl-alert/stl-alert.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
+import { StlTabbedGroupsComponent } from './components/stl-tabbed-groups/stl-tabbed-groups.component';
+
+/*Custom Animations */
+import * as CustomAnimations from "./_animations";
+
 @NgModule({
   declarations: [
     AppComponent,
     dynamicComponent.DynamicFormQuestionComponent,
     dynamicComponent.DynamicFormComponent,
     StlPlayerComponent,
+    StlPlayerListComponent,
     StlAssetComponent,
     StlFormFieldComponent,
     StlAlertComponent,
+    StlTabbedGroupsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +48,9 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
   providers: [
     dynamicComponent.QuestionService,
     dynamicComponent.QuestionControlService,
-    AllServices.AlertService
+    AllServices.AlertService,
+    AllServices.PlayerService,
+    AllServices.PubSubService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

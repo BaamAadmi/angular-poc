@@ -1,0 +1,19 @@
+﻿<h1>players</h1>
+<a routerLink="add" class="btn btn-default">Add player</a>
+<table class="table players-table">
+    <tr>
+        <th>Name</th>
+        <th>Position</th>
+        <th>Country</th>
+        <th class="delete-column"></th>
+    </tr>
+    <tr *ngFor="let player of Players">
+        <td><a [routerLink]="['edit', player.id]" href="javascript:void(0);" >{{player.name}}</a></td>
+        <td>{{player.position}}</td>
+        <td>{{player.country}}</td>
+        <td><a (click)="deletePlayer(player.id)" class="btn btn-xs btn-danger">Delete</a></td>
+    </tr>
+</table>
+<div class="view-side-form">
+    <router-outlet></router-outlet>
+</div> 

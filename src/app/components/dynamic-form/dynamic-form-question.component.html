@@ -1,17 +1,15 @@
 <div [formGroup]="form">
   <div [ngSwitch]="question.ControlType">
-        <mat-form-field *ngSwitchCase="'text'">
-          <input matInput [required]="question.IsMandatory"  [formControlName]="question.text" class="form-control"
-                [id]="question.text" [type]="question.type" [placeholder]="question.Label" >
-            <span class="errorMessage" *ngIf="question.IsMandatory"></span>
-        </mat-form-field>
-        <mat-form-field *ngSwitchCase="'select'">
-          <label *ngIf="question.Label" [attr.for]="question.text">{{question.Label}}</label>
-          <mat-select [id]="question.text" *ngSwitchCase="'select'" class="form-control" [formControlName]="question.text">
-            <mat-option *ngFor="let opt of question.options" [value]="opt.text">{{opt.text}}</mat-option>
-          </mat-select>
-          <span class="errorMessage" *ngIf="question.IsMandatory">*</span>
-      </mat-form-field>
+        <stl-form-field [label]="question.Label" [name]="question.text" [form]="form"  *ngSwitchCase="'text'">
+          <input  [required]="question.IsMandatory"  [formControlName]="question.Key" 
+                [id]="question.text" [type]="question.type" [placeholder]="question.Label" />
+            
+        </stl-form-field>
+        <stl-form-field [label]="question.Label" [name]="question.Key" [form]="form" *ngSwitchCase="'select'">
+          <ng-select [id]="question.text" *ngSwitchCase="'select'" [formControlName]="question.Key">
+            <ng-option *ngFor="let opt of question.options" [value]="opt.text">{{opt.text}}</ng-option>
+          </ng-select>
+      </stl-form-field>
       <div *ngSwitchCase="'radio'" >
         <div class="col-md-6">
             <div class="form-group">

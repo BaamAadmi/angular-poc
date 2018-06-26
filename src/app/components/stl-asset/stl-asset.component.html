@@ -15,9 +15,11 @@
 					</li>
 				</ol>
 				<span class="top-buttons">
-					<div class="btn btn-md btn-create-new"
+					<button class="btn btn-md btn-create-new"
+						 [disabled]="!assetForm.valid"
+						 (click)="submitAsset()"
 						 id="btnCreateDataSource"><i class="fa fa-fw fa-plus"></i> Save
-					</div>
+					</button>
 				</span>
 			</div>
 		</div>
@@ -50,7 +52,7 @@
 				</div>
 			</stl-form-field>
 
-			<stl-form-field [label]="'currencyList'" [name]="'currencyList'" [form]="assetForm">
+			<stl-form-field [label]="'Currency List'" [name]="'currencyList'" [form]="assetForm">
 				<ng-select [items]="currencyList" formControlName="currency" labelForId="currencyList" bindLabel="name">
 					<ng-template ng-option-tmp let-item="item" let-index="index" let-label="label">
 						<div class="stl-template-dropdown">
@@ -66,10 +68,15 @@
 			<input class="stl-date-picker" [owlDateTimeTrigger]="dt7" [owlDateTime]="dt7">
     		<owl-date-time [startAt]="startAt" #dt7></owl-date-time>
 			
-			<input formControlName="toggle" [(ngModel)]="isChecked" (change)="checkValue(isChecked?'active':'inactive')" type="checkbox" id="toggle" />
-			<label for="toggle">Show Table</label>
-
-			<div class="table-section" [hidden]="!active">
+			<div class="row">
+				<stl-form-field [class]="''" [form]="assetForm" [label]="'I am shopping'" [name]="'shopping'">
+					<input formControlName="shopping" value="1" type="radio" />
+				</stl-form-field>
+				<stl-form-field [form]="assetForm" [class]="''" [label]="'Window shopping'" [name]="'shopping'">
+					<input formControlName="shopping" value="0" type="radio" />
+				</stl-form-field>
+			</div>
+			<div class="table-section" [hidden]="assetForm.controls.shopping.value == '0'">
 				<div class="table-section-title">
 					<div class="col-md-3">Item Name</div>
 					<div class="col-md-3">Item Description</div>
@@ -83,12 +90,13 @@
 						<input class="col-md-3" type="number"  formControlName="price" placeholder="Item price">
 						<input class="col-md-3" formControlName="name" placeholder="Item name">
 						<span class="col-md-3">
-							<button class="btn btn-sm add-item" (click)="addItem()"> Add Item </button>
-							<!-- <button type="submit" class="btn btn-success">Submit</button> -->
+							<button class="btn btn-success" (click)="addItem()"> + </button>
+							<button class="btn btn-cancel" (click)="removeItem(i)"> - </button>
 						</span>
 					</div>
 				</div>
 			</div>
+			<stl-tabbed-groups></stl-tabbed-groups>
 		</form>
 		<pre *ngIf="!assetForm.invalid">Form value: {{ assetForm.value | json }}</pre>
 	</div>

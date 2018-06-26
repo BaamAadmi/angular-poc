@@ -13,6 +13,9 @@ export class StlFormFieldComponent implements OnInit {
   name: string;
   @Input()
   form: NgForm;
+  @Input()
+  class: string;
+
   constructor() { }
 
   ngOnInit() {

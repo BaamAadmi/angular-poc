@@ -4,7 +4,7 @@ import { QuestionBase } from "./question-base";
 
 @Component({
   // moduleId: module.id,
-  selector: "app-df-question",
+  selector: "stl-df-question",
   templateUrl: "dynamic-form-question.component.html"
 })
 export class DynamicFormQuestionComponent implements OnInit {

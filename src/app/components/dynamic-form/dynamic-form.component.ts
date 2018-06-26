@@ -1,15 +1,18 @@
-import { Component, Input, OnInit, ElementRef, ViewChild } from "@angular/core";
+import { Component, Input, Output, OnInit, ElementRef, EventEmitter, ViewChild } from "@angular/core";
 import { FormGroup } from "@angular/forms";
 import { Router, ActivatedRoute } from "@angular/router";
 import { QuestionBase } from "./question-base";
 import { QuestionControlService } from "./question-control.service";
 
 @Component({
-  selector: "app-dynamic-form",
+  selector: "stl-dynamic-form",
   templateUrl: "dynamic-form.component.html"
 })
 export class DynamicFormComponent implements OnInit {
   @Input() questions: QuestionBase<any>[] = [];
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onSubmitCallback: EventEmitter<any> = new EventEmitter();
+
   CustomerDetailform: FormGroup;
   OrderNumber: any;
   customerTransaction: any;
@@ -25,27 +28,10 @@ export class DynamicFormComponent implements OnInit {
   }
 
   ngOnInit() {
-      console.log(this.questions);
       this.CustomerDetailform = this.qcs.toFormGroup(this.questions);
   }
 
   onSubmit() {
-      this.customerTransaction.ClientId = this.currentUser.ClientId;
-      this.customerTransaction.UserId = this.currentUser.UserId;
-      this.customerTransaction.OrderNumber = this.OrderNumber;
-      this.customerTransaction.CustomerDetailTransaction =
-      Object.keys(this.CustomerDetailform.value).map((key) => {
-        return { Key: key, Value: this.CustomerDetailform.value[key] };
-      });
-      console.log(this.customerTransaction);
-      // this.custTranService.PostCustomerDetails(this.customerTransaction)
-      //   .subscribe(
-      //   x => {
-      //        // Everything is done clear information.
-      //   },
-      //   error => this.errorMessage = <any>error,
-      //   () => {
-      //   } // this gets called on completion
-      //   );
+          this.onSubmitCallback.emit([this.CustomerDetailform.value, this.questions]);
   }
 }

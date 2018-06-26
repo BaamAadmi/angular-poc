@@ -3,25 +3,15 @@
     <div  *ngIf="questions.length">
       <div *ngFor="let question of questions" class="col-md-12">
         <div class="form-group">
-          <app-df-question [question]="question" [form]="CustomerDetailform"></app-df-question>
+          <stl-df-question [question]="question" [form]="CustomerDetailform"></stl-df-question>
         </div>
       </div>
     </div>
-    <div *ngIf="!showPrint" class="col-md-12">
-      <div class="tick_form" style="margin: 10px 0;">
-        <label class="control control--checkbox" style="margin: 2px 0 10px 0">
-          Confirm details
-          <mat-checkbox #checkboxValue type="checkbox" >
-          </mat-checkbox> 
-            <div class="control__indicator"></div>
-        </label>
-        </div>
-    </div>
-    <div *ngIf="!showPrint" >
-      <button mat-raised-button type="button" class="btn btn-pm">
+    <div >
+      <button routerLink="/players"  type="button" class="btn btn-pm">
           Cancel
       </button>
-      <button mat-raised-button type="submit" [disabled]="!CustomerDetailform.valid" class="btn btn-pm">
+      <button  type="submit" [disabled]="!CustomerDetailform.valid" class="btn btn-pm">
           Add Player
       </button>
     </div>

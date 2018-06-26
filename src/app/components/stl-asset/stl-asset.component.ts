@@ -2,10 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Validators,  ValidatorFn } from "@angular/forms";
 import { AlertService } from "../../_services/alert.service";
+
+/*Custom Animations */
+import * as CustomAnimations from "../../_animations";
 @Component({
   selector: 'stl-asset',
   templateUrl: './stl-asset.component.html',
-  styleUrls: ['./../../scss/_forms.scss']
+  styleUrls:  ['./../../scss/_forms.scss'],
+  animations: [CustomAnimations.fadeInAnimation, CustomAnimations.slideInOutAnimation]
 })
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;
@@ -13,7 +17,6 @@ export class StlAssetComponent implements OnInit {
   asset: any = { name: '', alterEgo: '', currency: '', player: '', toggle: '' };
   items: any;
   currencyList: any;
-  toggle: boolean;
   active: boolean;
   dob: any;
 
@@ -33,11 +36,10 @@ export class StlAssetComponent implements OnInit {
         Validators.required
       ] ],
       player: new FormControl([]),
+      shopping: new FormControl([]),
       currency: new FormControl([]),
-      toggle: new FormControl([]),
       items: this.fb.array([ this.createItem() ])
     });
-    this.toggle = true;
     this.currencyList = [{name: "Dollar", id: 1, value: "&#36;", description: "This is the currency of United States of America"},
                          {name: "Euro", id: 2, value: "&#8364;", description: "This is the currency of Europian Union"},
                          {name: "Pound", id: 3, value: "&#163;", description: "This is the currency of Great Britain"},
@@ -64,19 +66,26 @@ export class StlAssetComponent implements OnInit {
     this.items.push(this.createItem());
   }
 
+  removeItem(index: number): void {
+    this.items = this.assetForm.get('items') as FormArray;
+    this.items.removeAt(index);
+  }
+
   get name() { return this.assetForm.get('name'); }
 
   get currency() { return this.assetForm.get('currency'); }
 
   submitAsset(): void {
-     const thisRef = this;
+    if (this.assetForm.valid) {
+    const thisRef = this;
      this.alertService.confirm("Are you sure you want to Submit?", function() {
-       // ACTION: Do this If user says YES
-       thisRef.alertService.success("Great!");
-    }, function() {
-      // ACTION: Do this if user says NO
-      thisRef.alertService.error("Bad choice");
-    });
+          // ACTION: Do this If user says YES
+          thisRef.alertService.success("Great!");
+        }, function() {
+          // ACTION: Do this if user says NO
+          thisRef.alertService.error("Bad choice");
+        });
+    }
   }
 
   checkValue(event: any) {
