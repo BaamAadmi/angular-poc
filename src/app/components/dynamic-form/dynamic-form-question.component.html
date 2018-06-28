@@ -2,7 +2,7 @@
   <div [ngSwitch]="question.ControlType">
         <stl-form-field [label]="question.Label" [name]="question.text" [form]="form"  *ngSwitchCase="'text'">
           <input  [required]="question.IsMandatory"  [formControlName]="question.Key" 
-                [id]="question.text" [type]="question.type" [placeholder]="question.Label" />
+                [id]="question.text" [type]="question.type" [value]="question.Value" [placeholder]="question.Label" />
             
         </stl-form-field>
         <stl-form-field [label]="question.Label" [name]="question.Key" [form]="form" *ngSwitchCase="'select'">

@@ -39,19 +39,6 @@
 					<ng-option value="thor">Thor</ng-option>
 				</ng-select>
 			</stl-form-field>
-
-			<stl-form-field [label]="'assetEntryDate'" [name]="'assetEntryDate'" [form]="assetForm">
-				<div class="input-group">
-					<input class="form-control" placeholder="yyyy-mm-dd"
-						   name="assetEntryDate" formControlName="assetEntryDate" ngbDatepicker #assetEntryDate="ngbDatepicker">
-					<div class="input-group-append">
-						<button class="btn btn-outline-secondary" (click)="assetEntryDate.toggle()" type="button">
-							<img src="../assets/img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-						</button>
-					</div>
-				</div>
-			</stl-form-field>
-
 			<stl-form-field [label]="'Currency List'" [name]="'currencyList'" [form]="assetForm">
 				<ng-select [items]="currencyList" formControlName="currency" labelForId="currencyList" bindLabel="name">
 					<ng-template ng-option-tmp let-item="item" let-index="index" let-label="label">

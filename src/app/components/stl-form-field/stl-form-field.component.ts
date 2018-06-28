@@ -1,10 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'stl-form-field',
   templateUrl: './stl-form-field.component.html',
-  styleUrls: ['./_stl-form-field.component.scss']
+  styleUrls: ['./_stl-form-field.component.scss', '../../scss/_forms.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class StlFormFieldComponent implements OnInit {
   @Input()

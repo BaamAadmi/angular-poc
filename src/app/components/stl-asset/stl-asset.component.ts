@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Http} from '@angular/http';
 import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Validators,  ValidatorFn } from "@angular/forms";
 import { AlertService } from "../../_services/alert.service";
-import {ViewEncapsulation} from '@angular/core';
 
 /*Custom Animations */
 import * as CustomAnimations from "../../_animations";
