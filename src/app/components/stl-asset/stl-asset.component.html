@@ -8,7 +8,6 @@
 						<a ui-sref="main" id="lnkWorkflowsBrowserHome" href="javascript:;">
 							Home
 						</a>
-						<i class="fa fa-circle"></i>
 					</li>
 					<li class="active">
 						<strong>Form</strong>
@@ -63,7 +62,7 @@
 				<input formControlName="shopping" type="radio" value="1" name="shopping" />
 			</stl-form-input-selection>
 
-			<div class="table-section" [hidden]="assetForm.controls.shopping.value == '0'">
+			<div class="table-section" [@enterAnimation]  *ngIf="assetForm.controls.shopping.value == '0'">
 				<div class="table-section-title">
 					<div class="col-md-3">Item Name</div>
 					<div class="col-md-3">Item Description</div>
