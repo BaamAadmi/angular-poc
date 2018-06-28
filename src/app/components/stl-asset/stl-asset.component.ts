@@ -2,6 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Http} from '@angular/http';
 import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Validators,  ValidatorFn } from "@angular/forms";
 import { AlertService } from "../../_services/alert.service";
+// import the required animation functions from the angular animations module
+import { trigger, state, animate, transition, style } from '@angular/animations';
 
 /*Custom Animations */
 import * as CustomAnimations from "../../_animations";
@@ -9,7 +11,21 @@ import * as CustomAnimations from "../../_animations";
   selector: 'stl-asset',
   templateUrl: './stl-asset.component.html',
   styleUrls:  ['./../../scss/_forms.scss'],
-  animations: [CustomAnimations.fadeInAnimation, CustomAnimations.slideInOutAnimation],
+  animations: [CustomAnimations.fadeInAnimation,
+               CustomAnimations.slideInOutAnimation,
+               trigger(
+                  'enterAnimation', [
+                    transition(':enter', [
+                      style({transform: 'translateX(100%)', opacity: 0}),
+                      animate('500ms', style({transform: 'translateX(0)', opacity: 1}))
+                    ]),
+                    transition(':leave', [
+                      style({transform: 'translateX(0)', opacity: 1}),
+                      animate('500ms', style({transform: 'translateX(100%)', opacity: 0}))
+                    ])
+                  ]
+                )
+              ],
   encapsulation: ViewEncapsulation.None
 })
 export class StlAssetComponent implements OnInit {

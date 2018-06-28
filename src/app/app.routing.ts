@@ -38,7 +38,7 @@ const appRoutes: Routes = [
                 name: 'asset-add'
             }
             },
-            { path: 'edit/:id', component: StlPlayerComponent }
+            { path: 'players', component: StlPlayerListComponent }
         ]
     }
 ];
