@@ -1,8 +1,20 @@
 
 <div class="container">
-    
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+                <a class="nav-link" routerLink="asset-entry" routerLinkActive="active" href="javascript:void(0)">
+                Asset Entry</a>
+        </li>
+        <li class="nav-item">
+            <a  routerLink="players" routerLinkActive="active" class="nav-link" href="javascript:void(0)">
+                    Players</a>
+        </li>
+        <li class="nav-item">
+                <a class="nav-link disabled" href="javascript:void(0)">Disabled</a>
+        </li>
+     </ul>
 </div>
 <alert></alert>
-<router-outlet>
-       
-</router-outlet>
+<div [@routeAnimation]="prepRouteState(routerOutlet)">
+        <router-outlet #routerOutlet="outlet">
+<div>

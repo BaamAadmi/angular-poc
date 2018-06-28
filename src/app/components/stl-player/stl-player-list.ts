@@ -36,7 +36,10 @@ export class StlPlayerListComponent implements OnInit, OnDestroy {
         this.loadPlayers();
 
         // reload Players when updated
-        this.subscription = this.pubSubService.on('Players-updated').subscribe(() => this.loadPlayers());
+        this.subscription = this.pubSubService.on('players-updated').subscribe(
+            () => {
+                this.loadPlayers();
+        });
         console.log(this.Players);
     }
 

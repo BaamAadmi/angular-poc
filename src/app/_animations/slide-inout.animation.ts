@@ -6,7 +6,7 @@ export const slideInOutAnimation =
         // end state styles for route container (host)
         state('*', style({
             // the view covers the whole screen with a semi tranparent background
-            position: 'fixed',
+            // position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
@@ -17,7 +17,7 @@ export const slideInOutAnimation =
         transition(':enter', [
             // styles at start of transition
             style({
-                // start with the content positioned off the right of the screen, 
+                // start with the content positioned off the right of the screen,
                 // -400% is required instead of -100% because the negative position adds to the width of the element
                 right: '-400%',
                 // start with background opacity set to 0 (invisible)

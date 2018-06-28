@@ -3,8 +3,6 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { HttpModule } from "@angular/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-/* Bootstrap CSS elements module */
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 /* ng Select module */
 import { NgSelectModule } from '@ng-select/ng-select';
 import * as AllServices from "./_services";
@@ -40,7 +38,6 @@ import * as CustomAnimations from "./_animations";
     HttpModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule.forRoot(),
     NgSelectModule,
     OwlDateTimeModule,
     OwlNativeDateTimeModule

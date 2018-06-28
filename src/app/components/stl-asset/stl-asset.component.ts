@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import {Http} from '@angular/http';
 import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Validators,  ValidatorFn } from "@angular/forms";
 import { AlertService } from "../../_services/alert.service";
@@ -9,7 +9,11 @@ import * as CustomAnimations from "../../_animations";
   selector: 'stl-asset',
   templateUrl: './stl-asset.component.html',
   styleUrls:  ['./../../scss/_forms.scss'],
-  animations: [CustomAnimations.fadeInAnimation, CustomAnimations.slideInOutAnimation]
+  // styles: [`stl-asset stl-player {
+  //   position: relative!important
+  // }`],
+  // encapsulation: ViewEncapsulation.None,
+  animations: [CustomAnimations.fadeInAnimation, CustomAnimations.slideInOutAnimation, CustomAnimations.routeAnimation]
 })
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;
