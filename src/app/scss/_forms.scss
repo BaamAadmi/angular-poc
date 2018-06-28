@@ -4,6 +4,25 @@
 .container {
     margin: 30px 20px;
     max-width: 98%;
+
+    /** Styling of tabs **/
+    .nav-tabs {
+        .nav-link {
+            @include rgba(color, $main-grey);
+            border: none;
+        }
+    
+        .nav-link.active {
+            @include border(bb, 2px, solid, $light-blue);
+            font-weight: bold;
+            background-color: inherit;
+        }
+
+        .nav-link.disabled {
+            @include rgba(color, $main-grey, 0.5);
+            cursor: not-allowed;
+        }
+    }
 }
 
 .stl-page-heading-title {
@@ -290,9 +309,9 @@
 
 // For table section
 .table-section {
-    @include border(bt, 1px, solid, $divider-grey);
-    padding-top: 20px;
-    margin-top: 20px;
+    @include border(b, 1px, solid, $additional-grey);
+    padding: 20px 0 10px 0;
+    margin: 20px 0;
 
     .table-section-title {
         font-weight: bold;
@@ -312,6 +331,31 @@
         &:hover {
             @include rgba(bg, $light-blue);
             @include rgba(color, $white);
+        }
+    }
+
+    .table-section-content {
+        margin-top: 5px;
+        display: flex;
+
+        .btn {
+            @include rgba(color, $white);
+            font-weight: bold;
+            &:hover {
+                opacity: 0.8;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        .btn-add {
+            @include rgba(bg, $medium-blue);
+            margin-right: 10px;
+        }
+        
+        .btn-delete {
+            @include rgba(bg, $negative-red);
         }
     }
 }
@@ -366,11 +410,10 @@
 
 /** A Sliding Player add*/
 
-    .products-table {
-        margin-top: 20px;
-        
-        .delete-column {
-            width: 60px;
-        }
-    }       
+.products-table {
+    margin-top: 20px;
     
+    .delete-column {
+        width: 60px;
+    }
+}       

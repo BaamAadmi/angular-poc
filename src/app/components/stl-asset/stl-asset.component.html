@@ -11,7 +11,7 @@
 						<i class="fa fa-circle"></i>
 					</li>
 					<li class="active">
-						<strong>Form</strong>
+						<strong>Asset Entry</strong>
 					</li>
 				</ol>
 				<span class="top-buttons">
@@ -65,21 +65,29 @@
 
 			<div class="table-section" [hidden]="assetForm.controls.shopping.value == '0'">
 				<div class="table-section-title">
-					<div class="col-md-3">Item Name</div>
-					<div class="col-md-3">Item Description</div>
+					<div class="col-md-4">Item Name</div>
+					<div class="col-md-4">Item Description</div>
 					<div class="col-md-3">Item Price</div>
-					<div class="col-md-3">Actions</div>
+					<div class="col-md-1">Actions</div>
 				</div>
 				<div class="form-group" formArrayName="items"
 					*ngFor="let item of assetForm.get('items').controls; let i = index;">
-					<div class="" [formGroupName]="i">
-						<input class="col-md-3"  formControlName="description" placeholder="Item description">
-						<input class="col-md-3" type="number"  formControlName="price" placeholder="Item price">
-						<input class="col-md-3" formControlName="name" placeholder="Item name">
-						<span class="col-md-3">
-							<button class="btn btn-success" (click)="addItem()"> + </button>
-							<button class="btn btn-cancel" (click)="removeItem(i)"> - </button>
-						</span>
+					<div class="table-section-content" [formGroupName]="i">
+						<div class="col-md-4">
+							<input formControlName="description" placeholder="Item description" />
+						</div>
+						<div class="col-md-4">
+							<input type="number"  formControlName="price" placeholder="Item price" />
+						</div>
+						<div class="col-md-3">
+							<input formControlName="name" placeholder="Item name" />
+						</div>
+						<div class="col-md-1">
+							<span>
+								<button class="btn btn-sm btn-add" (click)="addItem()"> + Add </button>
+								<button class="btn btn-sm btn-delete" (click)="removeItem(i)"> x </button>
+							</span>
+						</div>	
 					</div>
 				</div>
 			</div>
