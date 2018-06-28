@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Http} from '@angular/http';
 import { FormGroup, FormControl, FormBuilder, FormArray, AbstractControl, Validators,  ValidatorFn } from "@angular/forms";
 import { AlertService } from "../../_services/alert.service";
+import {ViewEncapsulation} from '@angular/core';
 
 /*Custom Animations */
 import * as CustomAnimations from "../../_animations";
@@ -9,7 +10,8 @@ import * as CustomAnimations from "../../_animations";
   selector: 'stl-asset',
   templateUrl: './stl-asset.component.html',
   styleUrls:  ['./../../scss/_forms.scss'],
-  animations: [CustomAnimations.fadeInAnimation, CustomAnimations.slideInOutAnimation]
+  animations: [CustomAnimations.fadeInAnimation, CustomAnimations.slideInOutAnimation],
+  encapsulation: ViewEncapsulation.None
 })
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;

@@ -68,14 +68,14 @@
 			<input class="stl-date-picker" [owlDateTimeTrigger]="dt7" [owlDateTime]="dt7">
     		<owl-date-time [startAt]="startAt" #dt7></owl-date-time>
 			
-			<div class="row">
-				<stl-form-field [class]="''" [form]="assetForm" [label]="'I am shopping'" [name]="'shopping'">
-					<input formControlName="shopping" value="1" type="radio" />
-				</stl-form-field>
-				<stl-form-field [form]="assetForm" [class]="''" [label]="'Window shopping'" [name]="'shopping'">
-					<input formControlName="shopping" value="0" type="radio" />
-				</stl-form-field>
-			</div>
+			<stl-form-input-selection [label]="'I am shopping'" [form]="assetForm" [name]="'shopping'" [class]="''">
+				<input formControlName="shopping" type="radio" value="0" name="shopping" />
+			</stl-form-input-selection>
+
+			<stl-form-input-selection [label]="'Window shopping'" [form]="assetForm" [name]="'shopping'" [class]="''">
+				<input formControlName="shopping" type="radio" value="1" name="shopping" />
+			</stl-form-input-selection>
+
 			<div class="table-section" [hidden]="assetForm.controls.shopping.value == '0'">
 				<div class="table-section-title">
 					<div class="col-md-3">Item Name</div>

@@ -14,6 +14,7 @@ import { AppComponent } from "./app.component";
 import {StlPlayerComponent, StlPlayerListComponent} from "./components/stl-player";
 import { StlAssetComponent } from './components/stl-asset/stl-asset.component';
 import { StlFormFieldComponent } from './components/stl-form-field/stl-form-field.component';
+import { StlFormInputSelectionComponent } from './components/stl-form-input-selection/stl-form-input-selection.component';
 import { StlAlertComponent } from './components/stl-alert/stl-alert.component';
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 import { StlTabbedGroupsComponent } from './components/stl-tabbed-groups/stl-tabbed-groups.component';
@@ -30,6 +31,7 @@ import * as CustomAnimations from "./_animations";
     StlPlayerListComponent,
     StlAssetComponent,
     StlFormFieldComponent,
+    StlFormInputSelectionComponent,
     StlAlertComponent,
     StlTabbedGroupsComponent
   ],
