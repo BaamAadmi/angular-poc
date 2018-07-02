@@ -1,3 +1,28 @@
+.stl-player-list-header {
+    display: grid;
+    margin: 20px 0 10px 0;
+    grid-template-areas: 'heading add-player';
+
+    .stl-player-list-heading {
+        grid-area: heading;
+        font-size: 18px;
+    }
+
+    .stl-player-list-add-player {
+        grid-area: add-player;
+        justify-self: end;
+    }
+}
+
+.table-section {
+    font-size: 13px;
+
+    img {
+        width: 30px;
+        height: 15px;
+    }
+} 
+
 
 app-stl-player {
     display: flex;

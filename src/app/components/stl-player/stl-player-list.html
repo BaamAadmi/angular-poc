@@ -1,19 +1,44 @@
-﻿<h1>players</h1>
-<a routerLink="add" class="btn btn-default">Add player</a>
-<table class="table players-table">
-    <tr>
-        <th>Name</th>
-        <th>Position</th>
-        <th>Country</th>
-        <th class="delete-column"></th>
-    </tr>
-    <tr *ngFor="let player of Players">
-        <td><a [routerLink]="['edit', player.id]" href="javascript:void(0);" >{{player.name}}</a></td>
-        <td>{{player.position}}</td>
-        <td>{{player.country}}</td>
-        <td><a (click)="deletePlayer(player.id)" class="btn btn-xs btn-danger">Delete</a></td>
-    </tr>
-</table>
+﻿<div class="stl-player-list-header">
+    <div class="stl-player-list-heading">Player List</div>
+    <div class="stl-player-list-add-player">
+        <a routerLink="add">
+            <button class="btn btn-xs btn-add"> Add player</button>
+        </a>
+    </div>
+</div>
+<div class="table-section">
+    <div class="table-section-title">
+        <div class="col-md-4"><span>Name</span></div>
+        <div class="col-md-4"><span>Position</span></div>
+        <div class="col-md-3"><span>Country</span></div>
+        <div class="col-md-1"><span>Actions</span></div>
+    </div>
+    <div *ngFor="let player of Players">
+        <div class="table-section-content">
+            <div class="col-md-4">
+                <a [routerLink]="['edit', player.id]" href="javascript:void(0);" >{{player.name}}</a>
+            </div>
+            <div class="col-md-4">
+                {{player.position}}
+            </div>
+            <div class="col-md-3">
+                <img *ngIf="player.country === 'India'" src="{{indiaFlagImageSrc}}" alt="" />
+                <img *ngIf="player.country === 'Poland'" src="{{polandFlagImageSrc}}" alt="" />
+                <img *ngIf="player.country === 'Great Britain'" src="{{greatBritainFlagImageSrc}}" alt="" />
+                {{player.country}}
+            </div>
+            <div class="col-md-1">
+                <span>
+                    <button class="btn btn-sm btn-delete" (click)="deletePlayer(player.id)">
+                        <i class="fa fa-trash"></i> Delete
+                    </button>
+                </span>
+            </div>	
+        </div>
+    </div>
+</div>
+
+
 <div class="view-side-form">
     <router-outlet></router-outlet>
 </div> 

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {ViewEncapsulation} from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({

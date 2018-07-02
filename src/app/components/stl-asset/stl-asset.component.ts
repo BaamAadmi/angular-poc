@@ -31,7 +31,7 @@ import * as CustomAnimations from "../../_animations";
 export class StlAssetComponent implements OnInit {
   assetForm: FormGroup;
   nameRegex: RegExp = /bob/i;
-  asset: any = { name: '', alterEgo: '', currency: '', player: '', toggle: '' };
+  asset: any = { name: '', alterEgo: '', currency: '', player: '', toggle: '', dateTime: '' };
   items: any;
   currencyList: any;
   active: boolean;
@@ -55,6 +55,7 @@ export class StlAssetComponent implements OnInit {
       player: new FormControl([]),
       shopping: new FormControl([]),
       currency: new FormControl([]),
+      dateTime: new FormControl([]),
       items: this.fb.array([ this.createItem() ])
     });
     this.currencyList = [{name: "Dollar", id: 1, value: "&#36;", description: "This is the currency of United States of America"},

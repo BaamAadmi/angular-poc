@@ -1,18 +1,18 @@
 <div>
   <form (ngSubmit)="onSubmit()" [formGroup]="CustomerDetailform">
     <div  *ngIf="questions.length">
-      <div *ngFor="let question of questions" class="col-md-12">
+      <div *ngFor="let question of questions">
         <div class="form-group">
           <stl-df-question [question]="question" [form]="CustomerDetailform"></stl-df-question>
         </div>
       </div>
     </div>
-    <div >
-      <button routerLink="/players"  type="button" class="btn btn-pm">
+    <div class="form-actions">
+      <button routerLink="/players" type="button" class="btn btn-sm btn-cancel">
           Cancel
       </button>
-      <button  type="submit" [disabled]="!CustomerDetailform.valid" class="btn btn-pm">
-        <i class="fa fa-check"></i> Save
+      <button type="submit" [disabled]="!CustomerDetailform.valid" class="btn btn-sm btn-save">
+        Save
       </button>
     </div>
    </form>

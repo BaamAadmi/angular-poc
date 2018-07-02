@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, OnDestroy } from '@angular/core';
+﻿import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlayerService, PubSubService } from '../../_services/index';
@@ -12,15 +12,19 @@ import { fadeInAnimation } from '../../_animations/index';
     templateUrl: 'stl-player-list.html',
     // make fade in animation available to this component
     animations: [fadeInAnimation],
-    styleUrls:  ['./../../scss/_forms.scss'],
+    styleUrls:  ['./../../scss/_forms.scss', './stl-player.component.scss'],
     // attach the fade in animation to the host (root) element of this component
     // tslint:disable-next-line:use-host-property-decorator
-    host: { '[@fadeInAnimation]': '' }
+    host: { '[@fadeInAnimation]': '' },
+    encapsulation: ViewEncapsulation.None
 })
 
 export class StlPlayerListComponent implements OnInit, OnDestroy {
     Players: any[];
     subscription: Subscription;
+    indiaFlagImageSrc = require('../png/india-flag.png');
+    polandFlagImageSrc = require('../png/poland-flag.png');
+    greatBritainFlagImageSrc = require('../png/united-kingdom-flag.png');
 
     constructor(
         private route: ActivatedRoute,
